@@ -84,9 +84,9 @@ EXTRA_OECONF = "\
     --disable-nss \
     --disable-system-lcms \
     --disable-system-gtk \
+    --without-rhino \
     --with-jdk-home=${WORKDIR}/fake-jdk \
     --with-javac=${STAGING_BINDIR_NATIVE}/javac \
-    --with-rhino=${STAGING_DATADIR_NATIVE}/java/rhino.jar \
     --with-openjdk-src-zip=${DL_DIR}/${OPENJDK_FILE_DOWNLOAD} \
     --with-hotspot-src-zip=${DL_DIR}/${HOTSPOT_FILE_DOWNLOAD} \
     --with-corba-src-zip=${DL_DIR}/${CORBA_FILE_DOWNLOAD} \
