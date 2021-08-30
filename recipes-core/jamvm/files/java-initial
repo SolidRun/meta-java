@@ -1,12 +1,17 @@
 #!/bin/sh
 #
 # Wrapper which (almost) silently restarts the VM in case of segfaults.
+SH_FILE=`readlink -f $0`
+SH_DIR=`dirname ${SH_FILE}`
+CURRENT_DIR=`cd ${SH_DIR} && pwd`
+PARENT_DIR=`dirname ${CURRENT_DIR}`
+BOOTCLASS=${PARENT_DIR}/share/jamvm-initial/classes.zip:${PARENT_DIR}/share/classpath-initial/glibj.zip
 
 error_counter=0;
 error_occured=139
 while [ ${error_counter} -le 50 -a ${error_occured} -eq 139 ]; do
     echo "Running JamVM-initial: ${@}"
-    jamvm-initial ${1+"$@"}
+    ${SH_DIR}/jamvm-initial -Xbootclasspath:${BOOTCLASS} ${1+"$@"}
     error_occured=$?
     if [ ${error_occured} -eq 139 ]; then
         echo "JamVM-initial crashed - silently trying again"

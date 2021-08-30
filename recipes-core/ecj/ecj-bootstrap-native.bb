@@ -34,7 +34,7 @@ do_compile() {
   echo "PARENT_DIR=\`dirname \${CURRENT_DIR}\`" >> ecj-bootstrap
 
   echo "ECJ_JAR=\${PARENT_DIR}/share/java/${JAR}" >> ecj-bootstrap
-  echo "RUNTIME=java" >> ecj-bootstrap
+  echo "RUNTIME=\${SH_DIR}/java" >> ecj-bootstrap
   cat ecj.in >> ecj-bootstrap
 }
 
