@@ -7,7 +7,9 @@ LIC_FILES_CHKSUM = " \
                     file://COPYING;md5=2d52359fd0d8f0c3e371e4cd19b213c0 \
                     file://doc/license.htm;md5=43506e48033a385dc0936f620ae2c745 \
                    "
-SRC_URI = "${SOURCEFORGE_MIRROR}/jikes/jikes-${PV}.tar.bz2"
+SRC_URI = "${SOURCEFORGE_MIRROR}/jikes/jikes-${PV}.tar.bz2 \
+           file://deprecated.patch \
+"
 
 inherit autotools update-alternatives relative_symlinks
 

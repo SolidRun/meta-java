@@ -1,0 +1,27 @@
+diff --git a/src/decl.cpp b/src/decl.cpp
+index ce638aa..31751dc 100644
+--- a/src/decl.cpp
++++ b/src/decl.cpp
+@@ -2596,7 +2596,9 @@ void Semantic::CheckMethodOverride(MethodSymbol* method,
+     //
+     if (control.option.deprecation &&
+         hidden_method -> IsDeprecated() &&
+-        ! method -> containing_type -> file_symbol -> IsClassOnly())
++        ! method -> containing_type -> file_symbol -> IsClassOnly() &&
++        ! method -> IsDeprecated() &&
++        ! InDeprecatedContext())
+     {
+         ReportSemError(SemanticError::DEPRECATED_METHOD_OVERRIDE,
+                        left_tok, right_tok, method -> Header(),
+diff --git a/src/error.cpp b/src/error.cpp
+index 9fbfb30..7e0078c 100644
+--- a/src/error.cpp
++++ b/src/error.cpp
+@@ -513,6 +513,7 @@ void SemanticError::StaticInitializer()
+     warning[DEPRECATED_FIELD] = WEAK_WARNING;
+     warning[DEPRECATED_METHOD] = WEAK_WARNING;
+     warning[DEPRECATED_CONSTRUCTOR] = WEAK_WARNING;
++    warning[DEPRECATED_METHOD_OVERRIDE] = WEAK_WARNING;
+ 
+     warning[UNNECESSARY_TYPE_IMPORT] = WEAK_WARNING;
+     warning[MULTIPLE_PUBLIC_TYPES] = WEAK_WARNING;
