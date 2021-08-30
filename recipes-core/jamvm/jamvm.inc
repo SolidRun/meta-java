@@ -32,7 +32,7 @@ do_configure_append_class-native() {
 EXTRA_OECONF = "--with-classpath-install-dir=${prefix} --libdir=${libdir}/jamvm --enable-ffi --disable-int-inlining"
 
 # Needed for big compilation targets like OpenJDK
-CFLAGS_append_class-native = " -DDEFAULT_MAX_HEAP=1024*MB"
+CFLAGS_append_class-native = " -DDEFAULT_MAX_HEAP=512*MB"
 
 EXTRA_OEMAKE = "JAVAC=${STAGING_BINDIR_NATIVE}/javac \
                 GLIBJ_ZIP=${STAGING_DATADIR_NATIVE}/classpath/glibj.zip \

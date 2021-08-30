@@ -12,8 +12,8 @@ PR = "r1"
 S = "${WORKDIR}/jamvm-${PV}"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/jamvm/jamvm-${PV}.tar.gz \
-           file://libffi.patch \
            file://jamvm-initial.patch \
+           file://jamvm-1.5.1-aarch64-support.patch \
            file://java-initial \
           "
 
@@ -29,6 +29,7 @@ EXTRA_OECONF = "\
   --program-suffix=-initial \
   --libdir=${STAGING_LIBDIR}/jamvm-initial \
   --enable-ffi \
+  --disable-int-threading \
   "
 
 # jamvm-initial has to run some binaries which need lots of memory.
@@ -43,8 +44,8 @@ do_install_append() {
   install -m 0755 ${WORKDIR}/java-initial ${D}${bindir}/
 }
 
-SRC_URI[md5sum] = "3f538bab6e1c77aed331e5e71f754f5b"
-SRC_URI[sha256sum] = "f329d1c8f42c06b53a3e82763d33900b100b8e9acd7afe02f7583c51253fd6e5"
+SRC_URI[md5sum] = "5a82751b50391eb092c906ce64f3b6bf"
+SRC_URI[sha256sum] = "663895bd69caf3a1fda6af5eea8263d90a5fd35ca8f4c32e2210ac410788901a"
 # shared state for jamvm-native does not work
 # since the paths are hardcoded
 #SSTATE_MIRRORS_class-native = ""

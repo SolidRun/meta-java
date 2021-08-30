@@ -1,0 +1,19 @@
+diff --git a/src/jam.h b/src/jam.h
+index f344a9c..154540a 100644
+--- a/src/jam.h
++++ b/src/jam.h
+@@ -671,12 +671,12 @@ typedef struct InitArgs {
+ 
+ /* default minimum size of object heap */
+ #ifndef DEFAULT_MIN_HEAP
+-#define DEFAULT_MIN_HEAP 2*MB
++#define DEFAULT_MIN_HEAP 16*MB
+ #endif
+ 
+ /* default maximum size of object heap */
+ #ifndef DEFAULT_MAX_HEAP
+-#define DEFAULT_MAX_HEAP 128*MB
++#define DEFAULT_MAX_HEAP 512*MB
+ #endif
+ 
+ /* default size of the Java stack */
