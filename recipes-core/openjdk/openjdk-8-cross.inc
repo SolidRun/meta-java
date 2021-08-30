@@ -43,6 +43,8 @@ PACKAGECONFIG[repack] = ",,,"
 
 PACKAGECONFIG[kerberos] = ",,krb5"
 
+EXTRA_OECONF_append = " --with-stdc++lib=dynamic "
+
 require openjdk-8-common.inc
 
 JAVA_HOME[unexport] = "1"
