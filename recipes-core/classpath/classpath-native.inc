@@ -16,6 +16,8 @@ export JAVAC="${STAGING_BINDIR_NATIVE}/ecj-initial"
 export JAVACFLAGS="-nowarn"
 
 EXTRA_OECONF = "\
+    GCJ_JAVAC_TRUE=no \
+    ac_cv_prog_java_works=yes \
     --with-glibj \
     --disable-Werror \
     --disable-alsa \
