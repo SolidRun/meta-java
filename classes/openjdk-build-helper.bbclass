@@ -80,6 +80,8 @@ def openjdk_build_helper_get_llvm_configure_arch(d):
         arch = "mips"
     elif arch in ['powerpc', 'powerpc64']:
         arch = "powerpc"
+    elif arch == "aarch64":
+        arch = "aarch64"
     elif arch == "arm":
         arch = "arm"
     else:
